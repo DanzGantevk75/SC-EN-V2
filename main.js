@@ -17,12 +17,12 @@ autowel = setting.autowelcome
 require('./Dhani.js')
 nocache('./Dhani.js', module => console.log(`${module} telah di update!`))
 
-const starts = async (Dhani = new WAConnection()) => {
+const starts = async (DanzBot = new WAConnection()) => {
     Dhani.logger.level = 'warn'
     Dhani.version = [2, 2142, 12]
-    Dhani.browserDescription = [ 'DhaniGans', 'Chrome', '3.0' ]
+    Dhani.browserDescription = [ 'DanzBot', 'Chrome', '3.0' ]
     Dhani.on('qr', () => {
-        console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan the qr code in only 20 seconds !!'))
+        console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan qr waktunya hanya 20 detik!!'))
     })
 
     fs.existsSync('./session.json') && Dhani.loadAuthInfo('./session.json')
@@ -72,14 +72,12 @@ Dhani.on("group-participants-update", async (anu) => {
       anu_user = v.vname || v.notify || num.split('@')[0]
       time_welc = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
       time_wel = moment.tz('Asia/Kolkata').format("hh:mm")
-      teks = `𝙃𝙚𝙡𝙡𝙤 𝙗𝙧𝙤 *@${num.split('@')[0]}*
+      teks = `*Hai* 𝙗𝙧𝙤 *@${num.split('@')[0]}*
 𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙜𝙧𝙤𝙪𝙥 *${mdata.subject}*
 
-𝙃𝙤𝙥𝙚 𝙮𝙤𝙪 𝙡𝙞𝙠𝙚 𝙞𝙩
-𝙉𝙚𝙫𝙚𝙧 𝙢𝙖𝙠𝙚 𝙖 𝙛𝙪𝙨𝙨
-𝘼𝙣𝙙 𝙙𝙤𝙣'𝙩 𝙛𝙤𝙧𝙜𝙚𝙩 𝙩𝙤 𝙧𝙚𝙖𝙙 𝙩𝙝𝙚 𝙙𝙚𝙨𝙘𝙧𝙞𝙥𝙩𝙞𝙤𝙣`
+*Semoga Kalian Suka Jangan Bikin Ribet dan Jangan Lupa Baca Deskripsinya*`
       welcomeBut = [{buttonId:`#menu`,buttonText:{displayText:'MENU'},type:1}, {buttonId:`#infogroup`,buttonText:{displayText:'INFOGROUP'},type:1}]
-      welcomeButt = { contentText: `${teks}`, footerText: `𝙅𝙤𝙞𝙣 𝙈𝙚𝙨𝙨𝙖𝙜𝙚`, buttons: welcomeBut, headerType: 6, locationMessage: bosco2.message.locationMessage}
+      welcomeButt = { contentText: `${teks}`, footerText: `Welcome Memex`, buttons: welcome dek, headerType: 6, locationMessage: bosco2.message.locationMessage}
       Dhani.sendMessage(mdata.id, welcomeButt, MessageType.buttonsMessage, { caption: 'buffer', "contextInfo": { "mentionedJid" : [num], },})
       }
       if (anu.action == 'remove' && !mem.includes(Dhani.user.jid)) {
@@ -91,9 +89,9 @@ Dhani.on("group-participants-update", async (anu) => {
       time_welc = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
       time_wel = moment.tz('Asia/Kolkata').format("hh:mm")
       memeg = mdata.participants.length
-      out = `𝙂𝙤𝙤𝙙𝙗𝙮𝙚 @${num.split('@')[0]}\n𝙈𝙚𝙣𝙩𝙖𝙡𝙡𝙮 𝙨𝙖𝙛𝙚 ?`
+      out = `Yah Out Mentalnya Pasti Kecil😹🤘@${num.split('@')[0]}\n𝙈𝙚𝙣𝙩𝙖𝙡𝙡𝙮 𝙨𝙖𝙛𝙚 ?`
       goodbyeBut = [{buttonId:`#menu`,buttonText:{displayText:'MENU'},type:1}, {buttonId:`#infogroup`,buttonText:{displayText:'INFOGROUP'}, type:1}]
-      goodbyeButt = { contentText: `${out}`, footerText: `𝙇𝙚𝙖𝙫𝙚 𝙈𝙚𝙨𝙨𝙖𝙜𝙚`, buttons: goodbyeBut, headerType: 6, locationMessage: bosco3.message.locationMessage}
+      goodbyeButt = { contentText: `${out}`, footerText: `Yah Keluar Beg0`, buttons: Selamat Tinggal Kont, headerType: 6, locationMessage: bosco3.message.locationMessage}
       Dhani.sendMessage(mdata.id, goodbyeButt, MessageType.buttonsMessage, { caption: 'buffer', "contextInfo": { "mentionedJid" : [num], },})
       }
       }
